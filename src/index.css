@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ゲーム風のレトロなフォント */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  transition: background-color 0.5s ease;
+}
+
+/* ゲーム風のスタイル */
+.game-font {
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* ボタンのホバー効果 */
+.btn-escape {
+  transition: all 0.3s ease;
+}
+
+.btn-escape:hover {
+  transform: scale(1.05);
+}
+
+/* キャラクターのアニメーション */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.character-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* レベルアップエフェクト */
+@keyframes levelUp {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.5) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}
+
+.level-up-animation {
+  animation: levelUp 1s ease-in-out;
+}
+
+/* XPバーのアニメーション */
+@keyframes xpGain {
+  0% { width: 0%; }
+  100% { width: var(--target-width); }
+}
+
+.xp-gain-animation {
+  animation: xpGain 1s ease-out;
+}
