@@ -193,3 +193,76 @@
 
 .appearance-none { appearance: none; }
 .cursor-pointer { cursor: pointer; }
+
+/* Accessibility - Focus indicators */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.dark button:focus-visible,
+.dark input:focus-visible,
+.dark select:focus-visible {
+  outline-color: #60a5fa;
+}
+
+/* Additional utilities */
+.fixed { position: fixed; }
+.bottom-4 { bottom: 1rem; }
+.right-4 { right: 1rem; }
+.z-50 { z-index: 50; }
+.min-w-\[280px\] { min-width: 280px; }
+.max-w-md { max-width: 28rem; }
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.overflow-y-auto { overflow-y: auto; }
+.max-h-96 { max-height: 24rem; }
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.bg-black\/50 { background-color: rgba(0, 0, 0, 0.5); }
+.accent-blue-600 { accent-color: #2563eb; }
+
+/* Smooth transitions for all interactive elements */
+button, a, input, select {
+  transition: all 0.2s ease;
+}
+
+/* Hover effects for cards */
+.transform { transform: translateZ(0); }
+.hover\:bg-red-900\/50:hover { background-color: rgba(120, 53, 15, 0.5); }
+.bg-red-900\/30 { background-color: rgba(120, 53, 15, 0.3); }
+.dark .bg-red-900\/30 { background-color: rgba(120, 53, 15, 0.3); }
+.dark .hover\:bg-red-900\/50:hover { background-color: rgba(120, 53, 15, 0.5); }
+
+/* Grid utilities for quick compare */
+.from-gray-50 { --tw-gradient-from: #f9fafb; }
+.to-gray-100 { --tw-gradient-to: #f3f4f6; }
+.from-gray-700 { --tw-gradient-from: #374151; }
+.to-gray-600 { --tw-gradient-to: #4b5563; }
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+
+.text-blue-400 { color: #60a5fa; }
+.text-blue-300 { color: #93c5fd; }
+.hover\:text-blue-700:hover { color: #1d4ed8; }
+.hover\:text-blue-300:hover { color: #93c5fd; }
+.dark .text-blue-400 { color: #60a5fa; }
+.dark .hover\:text-blue-300:hover { color: #93c5fd; }
+
+.text-xs { font-size: 0.75rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.border { border-width: 1px; }
+.border-gray-500 { border-color: #6b7280; }
+.dark .border-gray-500 { border-color: #6b7280; }

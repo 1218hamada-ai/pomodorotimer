@@ -7,9 +7,19 @@ export const convertTemperature = (value, fromUnit, toUnit) => {
   // 入力をセルシウスに変換
   if (fromUnit === '°C') {
     celsius = value;
+    // 絶対零度以下のチェック
+    if (celsius < -273.15) {
+      throw new Error('温度が絶対零度（-273.15°C）より低くなっています');
+    }
   } else if (fromUnit === '°F') {
     celsius = (value - 32) * (5 / 9);
+    if (celsius < -273.15) {
+      throw new Error('温度が絶対零度より低くなっています');
+    }
   } else if (fromUnit === 'K') {
+    if (value < 0) {
+      throw new Error('ケルビン温度は0未満にはなりません');
+    }
     celsius = value - 273.15;
   }
 
@@ -26,6 +36,9 @@ export const convertTemperature = (value, fromUnit, toUnit) => {
 // 距離変換（メートルを基準）
 export const convertDistance = (value, fromUnit, toUnit) => {
   if (fromUnit === toUnit) return value;
+  if (value < 0) {
+    throw new Error('距離は負の値にはなりません');
+  }
 
   const toMeters = {
     'm': 1,
@@ -45,6 +58,9 @@ export const convertDistance = (value, fromUnit, toUnit) => {
 // 重さ変換（キログラムを基準）
 export const convertWeight = (value, fromUnit, toUnit) => {
   if (fromUnit === toUnit) return value;
+  if (value < 0) {
+    throw new Error('重さは負の値にはなりません');
+  }
 
   const toKilograms = {
     'kg': 1,
@@ -62,6 +78,9 @@ export const convertWeight = (value, fromUnit, toUnit) => {
 // 体積変換（リットルを基準）
 export const convertVolume = (value, fromUnit, toUnit) => {
   if (fromUnit === toUnit) return value;
+  if (value < 0) {
+    throw new Error('体積は負の値にはなりません');
+  }
 
   const toLiters = {
     'L': 1,
@@ -97,6 +116,9 @@ export const convertEnergy = (value, fromUnit, toUnit) => {
 // 面積変換（平方メートルを基準）
 export const convertArea = (value, fromUnit, toUnit) => {
   if (fromUnit === toUnit) return value;
+  if (value < 0) {
+    throw new Error('面積は負の値にはなりません');
+  }
 
   const toSquareMeters = {
     'm²': 1,

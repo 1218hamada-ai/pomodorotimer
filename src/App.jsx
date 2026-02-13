@@ -4,6 +4,7 @@ import { UnitConverter } from './components/UnitConverter'
 import Header from './components/Header'
 import CategoryCard from './components/CategoryCard'
 import ConversionHistory from './components/ConversionHistory'
+import ToastContainer from './components/ToastContainer'
 import { AppProvider, AppContext } from './context/AppContext'
 import {
   convertTemperature,
@@ -19,7 +20,7 @@ import {
 function AppContent() {
   const [activeCategory, setActiveCategory] = useState('temperature')
   const [showHistory, setShowHistory] = useState(false)
-  const { darkMode } = useContext(AppContext)
+  const { darkMode, toast } = useContext(AppContext)
 
   useEffect(() => {
     if (darkMode) {
@@ -132,6 +133,9 @@ function AppContent() {
           {showHistory && <ConversionHistory />}
         </div>
       </main>
+
+      {/* Toast Notifications */}
+      <ToastContainer toasts={toast.toasts} removeToast={toast.removeToast} />
     </div>
   )
 }

@@ -3,10 +3,11 @@ import { FiX, FiCopy, FiTrash2 } from 'react-icons/fi';
 import { AppContext } from '../context/AppContext';
 
 export default function ConversionHistory() {
-  const { history, removeHistoryItem, clearHistory } = useContext(AppContext);
+  const { history, removeHistoryItem, clearHistory, toast } = useContext(AppContext);
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
+    toast.success('クリップボードにコピーしました');
   };
 
   if (history.length === 0) {

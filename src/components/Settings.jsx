@@ -3,7 +3,7 @@ import { FiX } from 'react-icons/fi';
 import { AppContext } from '../context/AppContext';
 
 export default function Settings({ onClose }) {
-  const { precision, updatePrecision, clearHistory } = useContext(AppContext);
+  const { precision, updatePrecision, clearHistory, toast } = useContext(AppContext);
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 w-full max-w-md animate-slideUp">
@@ -49,7 +49,7 @@ export default function Settings({ onClose }) {
           <button
             onClick={() => {
               clearHistory();
-              alert('変換履歴をクリアしました');
+              toast.success('変換履歴をクリアしました');
             }}
             className="w-full px-4 py-2 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors font-semibold"
           >

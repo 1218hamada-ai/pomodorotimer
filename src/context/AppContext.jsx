@@ -1,4 +1,5 @@
 import { createContext, useState, useCallback, useEffect } from 'react';
+import { useToast } from '../hooks/useToast';
 
 export const AppContext = createContext();
 
@@ -6,6 +7,7 @@ export const AppProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
   const [history, setHistory] = useState([]);
   const [precision, setPrecision] = useState(6);
+  const toast = useToast();
 
   // Load settings from localStorage on mount
   useEffect(() => {
@@ -78,6 +80,7 @@ export const AppProvider = ({ children }) => {
         removeHistoryItem,
         precision,
         updatePrecision,
+        toast,
       }}
     >
       {children}
